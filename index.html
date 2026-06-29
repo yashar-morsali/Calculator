@@ -1,15 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-    <div class="display">
-        <div class="LastNumber"></div>
-        <div class="MainNumber"></div>
-    </div>
-	
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        border: 1px solid red;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1.3rem;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .calculator {
+        height: 500px;
+        width: 280px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        grid-column-gap: 8px;
+        grid-row-gap: 5px;
+        padding: 20px 15px;
+      }
+      .Btn {
+        width: 100%;
+        height: 100%;
+        align-content: center;
+        border-radius: 12px;
+        background-color: yellowgreen;
+      }
+      .display {
+        grid-column: 1/5;
+        grid-row: 1/4;
+        width: 100%;
+        height: 100%;
+      }
+      .BtnPlus {
+        padding-bottom: 30px;
+      }
+      .BtnEqual {
+        grid-column: 4;
+        grid-row: 7/9;
+        height: 90%;
+        margin-top: 23px;
+        border-radius: 13px;
+      }
+      .Btn0 {
+        grid-row: 8;
+        grid-column: 1/3;
+        border-radius: 13px;
+        margin-top: 20px;
+      }
+      .BtnPoint {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="calculator">
+        <div class="display">
+          <div class="firstNum">1234</div>
+          <div class="mainNum">1234</div>
+        </div>
+        <div class="Btn acBtn">Ac</div>
+        <div class="Btn eraseBtn"><=</div>
+        <div class="Btn devideBtn">/</div>
+        <div class="Btn multiplyBtn">x</div>
+        <div class="Btn Btn7">7</div>
+        <div class="Btn Btn8">8</div>
+        <div class="Btn Btn9">9</div>
+        <div class="Btn BtnMinus">-</div>
+        <div class="Btn Btn4">4</div>
+        <div class="Btn Btn5">5</div>
+        <div class="Btn Btn6">6</div>
+        <div class="Btn plusBtn">+</div>
+        <div class="Btn Btn1">1</div>
+        <div class="Btn Btn2">2</div>
+        <div class="Btn Btn3">3</div>
+        <div class="Btn Btn0">0</div>
+        <div class="Btn BtnPoint">.</div>
+        <div class="Btn BtnEqual">=</div>
+      </div>
+    </main>
+  </body>
 </html>
