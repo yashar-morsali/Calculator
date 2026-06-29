@@ -5,14 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+        :root{
+            --font-color:#3D405B;
+            --back-color:#F2CC8F;
+            --app-color:#81B29A;
+            --Btn-color:#F4F1DE;
+            --err-color:#E07A5F;
+        }
       * {
         padding: 0px;
         margin: 0px;
-        border: 1px solid red;
         font-family: "Courier New", Courier, monospace;
         font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--font-color);
       }
+
       main {
+        background-color:var(--back-color) ;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -30,21 +40,57 @@
         text-align: center;
         grid-column-gap: 8px;
         grid-row-gap: 5px;
-        padding: 20px 15px;
+        padding: 35px 15px;
+        border-radius: 30px;
+        background-color: var(--app-color);
+        box-shadow: 5px 6px 33px -4px rgba(141,141,141,0.8);
+        -webkit-box-shadow: 5px 6px 33px -4px rgba(141,141,141,0.8);
+        -moz-box-shadow: 5px 6px 33px -4px rgba(141,141,141,0.6);
+        border: 2px solid var(--font-color);
+
+      }
+      .display {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-column: 1/5;
+        grid-row: 1/4;
+        width: 100%;
+        height: 100%;
+        text-shadow: 1px 2px 6px rgba(0,0,0,0.20);
+      }
+
+      .firstNum {
+        text-align: end;
+        padding-right: 20px;
+        justify-content: center;
+        font-size: 1rem;
+      }
+      .mainNum {
+        justify-content: end;
+        font-size: 1.8rem;
+        text-align: end;
       }
       .Btn {
         width: 100%;
         height: 100%;
         align-content: center;
+        border: 0px;
         border-radius: 12px;
-        background-color: yellowgreen;
+        background-color:var(--Btn-color);
+        box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.3);
       }
-      .display {
-        grid-column: 1/5;
-        grid-row: 1/4;
-        width: 100%;
-        height: 100%;
+      .Btn:hover{
+          font-size: 1.1em;
       }
+      .Btn:active{
+          transform: translateY(1px);
+          font-size: 1em;
+      }
+
+
       .BtnPlus {
         padding-bottom: 30px;
       }
@@ -70,28 +116,28 @@
     <main>
       <div class="calculator">
         <div class="display">
-          <div class="firstNum">1234</div>
-          <div class="mainNum">1234</div>
+          <div class="firstNum">12347182309182</div>
+          <div class="mainNum">123455</div>
         </div>
-        <div class="Btn acBtn">Ac</div>
-        <div class="Btn eraseBtn"><=</div>
-        <div class="Btn devideBtn">/</div>
-        <div class="Btn multiplyBtn">x</div>
-        <div class="Btn Btn7">7</div>
-        <div class="Btn Btn8">8</div>
-        <div class="Btn Btn9">9</div>
-        <div class="Btn BtnMinus">-</div>
-        <div class="Btn Btn4">4</div>
-        <div class="Btn Btn5">5</div>
-        <div class="Btn Btn6">6</div>
-        <div class="Btn plusBtn">+</div>
-        <div class="Btn Btn1">1</div>
-        <div class="Btn Btn2">2</div>
-        <div class="Btn Btn3">3</div>
-        <div class="Btn Btn0">0</div>
-        <div class="Btn BtnPoint">.</div>
-        <div class="Btn BtnEqual">=</div>
-      </div>
+        <button class="Btn acBtn">Ac</button>
+        <button class="Btn eraseBtn"><-</button>
+        <button class="Btn devideBtn">/</button>
+        <button class="Btn multiplyBtn">x</button>
+        <button class="Btn Btn7">7</button>
+        <button class="Btn Btn8">8</button>
+        <button class="Btn Btn9">9</button>
+        <button class="Btn BtnMinus">-</button>
+        <button class="Btn Btn4">4</button>
+        <button class="Btn Btn5">5</button>
+        <button class="Btn Btn6">6</button>
+        <button class="Btn plusBtn">+</button>
+        <button class="Btn Btn1">1</button>
+        <button class="Btn Btn2">2</button>
+        <button class="Btn Btn3">3</button>
+        <button class="Btn Btn0">0</button>
+        <button class="Btn BtnPoint">.</button>
+        <button class="Btn BtnEqual">=</button>
+      </>
     </main>
   </body>
 </html>
