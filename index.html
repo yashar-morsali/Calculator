@@ -4,140 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        :root{
-            --font-color:#3D405B;
-            --back-color:#F2CC8F;
-            --app-color:#81B29A;
-            --Btn-color:#F4F1DE;
-            --err-color:#E07A5F;
-        }
-      * {
-        padding: 0px;
-        margin: 0px;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--font-color);
-      }
-
-      main {
-        background-color:var(--back-color) ;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100vh;
-      }
-      .calculator {
-        height: 500px;
-        width: 280px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(8, 1fr);
-        align-items: center;
-        justify-items: center;
-        text-align: center;
-        grid-column-gap: 8px;
-        grid-row-gap: 5px;
-        padding: 35px 15px;
-        border-radius: 30px;
-        background-color: var(--app-color);
-        box-shadow: 5px 6px 33px -4px rgba(141,141,141,0.8);
-        -webkit-box-shadow: 5px 6px 33px -4px rgba(141,141,141,0.8);
-        -moz-box-shadow: 5px 6px 33px -4px rgba(141,141,141,0.6);
-        border: 2px solid var(--font-color);
-
-      }
-      .display {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        grid-column: 1/5;
-        grid-row: 1/4;
-        width: 100%;
-        height: 100%;
-        text-shadow: 1px 2px 6px rgba(0,0,0,0.20);
-      }
-
-      .firstNum {
-        text-align: end;
-        padding-right: 20px;
-        justify-content: center;
-        font-size: 1rem;
-      }
-      .mainNum {
-        justify-content: end;
-        font-size: 1.8rem;
-        text-align: end;
-      }
-      .Btn {
-        width: 100%;
-        height: 100%;
-        align-content: center;
-        border: 0px;
-        border-radius: 12px;
-        background-color:var(--Btn-color);
-        box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.2);
-        -webkit-box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.3);
-      }
-      .Btn:hover{
-          font-size: 1.1em;
-      }
-      .Btn:active{
-          transform: translateY(1px);
-          font-size: 1em;
-      }
-
-
-      .BtnPlus {
-        padding-bottom: 30px;
-      }
-      .BtnEqual {
-        grid-column: 4;
-        grid-row: 7/9;
-        height: 90%;
-        margin-top: 23px;
-        border-radius: 13px;
-      }
-      .Btn0 {
-        grid-row: 8;
-        grid-column: 1/3;
-        border-radius: 13px;
-        margin-top: 20px;
-      }
-      .BtnPoint {
-        margin-top: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <main>
       <div class="calculator">
         <div class="display">
-          <div class="firstNum">12347182309182</div>
-          <div class="mainNum">123455</div>
+          <div class="firstNum">Inter the Numbers:</div>
+          <div class="mainNum"></div>
         </div>
-        <button class="Btn acBtn">Ac</button>
+        <button class="Btn ACBtn">Ac</button>
         <button class="Btn eraseBtn"><-</button>
         <button class="Btn devideBtn">/</button>
         <button class="Btn multiplyBtn">x</button>
-        <button class="Btn Btn7">7</button>
-        <button class="Btn Btn8">8</button>
-        <button class="Btn Btn9">9</button>
+        <button data-input="7" class="Btn Btn7">7</button>
+        <button data-input="8" class="Btn Btn8">8</button>
+        <button data-input="9" class="Btn Btn9">9</button>
         <button class="Btn BtnMinus">-</button>
-        <button class="Btn Btn4">4</button>
-        <button class="Btn Btn5">5</button>
-        <button class="Btn Btn6">6</button>
+        <button data-input="4" class="Btn Btn4">4</button>
+        <button data-input="5" class="Btn Btn5">5</button>
+        <button data-input="6" class="Btn Btn6">6</button>
         <button class="Btn plusBtn">+</button>
-        <button class="Btn Btn1">1</button>
-        <button class="Btn Btn2">2</button>
-        <button class="Btn Btn3">3</button>
-        <button class="Btn Btn0">0</button>
+        <button data-input="1" class="Btn Btn1">1</button>
+        <button data-input="2" class="Btn Btn2">2</button>
+        <button data-input="3" class="Btn Btn3">3</button>
+        <button data-input="0" class="Btn Btn0">0</button>
         <button class="Btn BtnPoint">.</button>
         <button class="Btn BtnEqual">=</button>
       </>
     </main>
+    <script>
+
+      class Calculator {
+        constructor(){
+          this._lastNumber=0
+        }
+        _errorCheck(input){
+          if(typeof(input) !== "number"){
+            throw new TypeError("please inter a valid number! ")}
+        }
+
+        plus(num){
+          this._errorCheck(num)
+          this._lastNumber = this._lastNumber + num
+          return this._lastNumber
+
+        }
+        minus(num){
+          this._errorCheck(num)
+          this._lastNumber = this.plus(-1*num)
+          return this._lastNumber
+        }
+        muliply(num){
+          this._errorCheck(num)
+          if(num === 0){
+            this._lastNumber = 0
+            return 0
+          }
+          else{
+            this._lastNumber = this._lastNumber * num
+            return this._lastNumber
+          }
+        }
+        divide(num){
+          this._errorCheck(num)
+          if(num === 0){
+            return this._lastNumber
+          }
+          else{
+            this._lastNumber= this._lastNumber / num
+            return this._lastNumber
+          }
+        }
+        clear(){
+          this._lastNumber = 0
+        }
+      }
+
+    </script>
   </body>
 </html>

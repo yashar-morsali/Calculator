@@ -1,0 +1,103 @@
+:root {
+  --font-color: #3d405b;
+  --back-color: #f2cc8f;
+  --app-color: #81b29a;
+  --Btn-color: #f4f1de;
+  --err-color: #e07a5f;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--font-color);
+}
+
+main {
+  background-color: var(--back-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.calculator {
+  height: 500px;
+  width: 280px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  grid-column-gap: 8px;
+  grid-row-gap: 5px;
+  padding: 35px 15px;
+  border-radius: 30px;
+  background-color: var(--app-color);
+  box-shadow: 5px 6px 33px -4px rgba(141, 141, 141, 0.8);
+  -webkit-box-shadow: 5px 6px 33px -4px rgba(141, 141, 141, 0.8);
+  -moz-box-shadow: 5px 6px 33px -4px rgba(141, 141, 141, 0.6);
+  border: 2px solid var(--font-color);
+}
+.display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 1/5;
+  grid-row: 1/4;
+  width: 100%;
+  height: 100%;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.firstNum {
+  text-align: end;
+  padding-right: 20px;
+  justify-content: center;
+  font-size: 1rem;
+}
+.mainNum {
+  justify-content: end;
+  font-size: 1.8rem;
+  text-align: end;
+}
+.Btn {
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  border: 0px;
+  border-radius: 12px;
+  background-color: var(--Btn-color);
+  box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 4px 11px -1px rgba(0, 0, 0, 0.3);
+}
+.Btn:hover {
+  font-size: 1.1em;
+}
+.Btn:active {
+  transform: translateY(1px);
+  font-size: 1em;
+}
+
+.BtnPlus {
+  padding-bottom: 30px;
+}
+.BtnEqual {
+  grid-column: 4;
+  grid-row: 7/9;
+  height: 90%;
+  margin-top: 23px;
+  border-radius: 13px;
+}
+.Btn0 {
+  grid-row: 8;
+  grid-column: 1/3;
+  border-radius: 13px;
+  margin-top: 20px;
+}
+.BtnPoint {
+  margin-top: 20px;
+}
